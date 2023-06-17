@@ -8,35 +8,19 @@ using System.Threading.Tasks;
 namespace Car_Project.Models
 {
 
-    public class Agency : Person
+    public class Agency 
     {
-        public string location { get; private set; }
-        public double Contact { get; set; }
         public Payment payment { get; set; }
+        public Person person { get; set; }
 
-        private bool isCarServiceSupported { get; set; }
 
-        public Agency(string firstName, string lastName, string location)
-          : base(firstName, lastName,null,0)
+        public Agency(Person person, Payment payment)
+         
         {
-            this.location = location;
+            this.person = person;
+            this.payment = payment;
         }
-        /* public string GetLocation()
-         {
-             return location;
-         }*/
-        public string Service()
-        {
-            if (!isCarServiceSupported)
-            {
-                isCarServiceSupported = true;
-                return "We will provide you after sell service...Hurrah!!!";
-            }
-            else
-            {
-                return "Sorry, no service is available.";
-            }
-        }
+    
 
     }
 }

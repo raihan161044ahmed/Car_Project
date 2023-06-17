@@ -54,7 +54,7 @@ namespace Car_Project.Models
         {
             return GetTotalProductPrice() + GetVATAmount() - GetDiscountAmount();
         }
-        public bool AddProduct(Person person, Car car, int qty)
+        public bool AddProduct(Person person, Car car, int qty, int dayCount)
         {
 
             if (booking == null)
@@ -62,15 +62,13 @@ namespace Car_Project.Models
                 return false;
             }
 
-            var payment = new Booking(car,person, qty);
+            var payment = new Booking(car,person, qty, dayCount);
             booking.Add(payment);
             return true;
         }
         public string GetVoucher()
         {
             string message = "";
-
-            message += $"Date: {Date.ToShortDateString()}" + Environment.NewLine;
             foreach (Booking item in booking)
             {
                 message += item.GetBookingInfo() + Environment.NewLine;
