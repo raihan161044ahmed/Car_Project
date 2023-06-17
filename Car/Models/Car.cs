@@ -9,14 +9,16 @@ namespace Car_Project.Models
 {
     public class Car
     {
-        private Car()
-        {
-            Price = 50;
-        }
+        public string color { get; set; }
+        public string brand { get; set; }
+       public double price { get; set; }
 
-        public Car(Engine engine) : this()
+        public Car(Engine engine) 
         {
             this.CarEngine = engine;
+        }
+        public Car()
+        {        
         }
 
         public string Model

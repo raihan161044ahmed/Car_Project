@@ -3,35 +3,27 @@
 using Car_Project.Models;
 
 
-var engine = new Engine()
+var car1 = new Car()
 {
 
-    EngineModel = "H932klsd",
-    EngineBrand = "Lamborghini",
-    EngineHorsePower = 6000
+   brand="BMW",
+   color="blue",
+   price=double.Parse("100000")
 
 };
-
-var car = new Car(engine);
-
-var agency = new Agency("Raihan", "Ahmed", "Dhaka")
+var car2 = new Car()
 {
-    Contact = double.Parse("120015")
+    brand = "Lamborghini",
+    color = "red",
+    price = double.Parse("200000")
 };
-Console.WriteLine(agency.Contact);
 
-string carInfo = "";
-Console.WriteLine("Start Car...");
-carInfo = car.Start();
-Console.WriteLine(carInfo);
+var person1 = new Person("Raihan", "Ahmed", "Dhaka",01521565);
+var person2 = new Person("md.", "Nahid", "chittagong", 123456789);
+Payment payment = new Payment();
+payment.AddProduct(person1,car1, 2);
+payment.AddProduct(person2 ,car2, 3);
+payment.DiscountPercentage = 15;
+payment.VATPercentage = 10;
 
-
-Console.WriteLine("Innitiate Accelaration...");
-carInfo = car.Accelarate();
-Console.WriteLine(carInfo);
-
-Console.WriteLine("Checking Agency service.....");
-
-
-carInfo = agency.Service();
-Console.WriteLine(agency.FullName + ", " + carInfo + "Your Location:" + agency.location);
+Console.WriteLine(payment.GetVoucher());

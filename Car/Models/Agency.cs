@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace Car_Project.Models
 {
+
     public class Agency : Person
     {
         public string location { get; private set; }
         public double Contact { get; set; }
+        public Payment payment { get; set; }
 
         private bool isCarServiceSupported { get; set; }
 
         public Agency(string firstName, string lastName, string location)
-          : base(firstName, lastName)
+          : base(firstName, lastName,null,0)
         {
             this.location = location;
         }
@@ -35,5 +37,6 @@ namespace Car_Project.Models
                 return "Sorry, no service is available.";
             }
         }
+
     }
 }
